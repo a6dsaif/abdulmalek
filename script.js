@@ -4,3 +4,13 @@ function setLanguage(l){current=l;document.documentElement.lang=l;document.docum
 lang.onclick=()=>setLanguage(current==='ar'?'en':'ar');menu.onclick=()=>nav.classList.toggle('open');nav.querySelectorAll('a').forEach(a=>a.onclick=()=>nav.classList.remove('open'));
 const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(e=>observer.observe(e));
 document.addEventListener('mousemove',e=>{document.body.style.setProperty('--mx',e.clientX+'px');document.body.style.setProperty('--my',e.clientY+'px')});
+const brand = document.querySelector('.brand');
+const profilePreview = document.getElementById('profilePreview');
+
+brand.addEventListener('mouseenter', () => {
+    profilePreview.classList.add('show');
+});
+
+brand.addEventListener('mouseleave', () => {
+    profilePreview.classList.remove('show');
+});
